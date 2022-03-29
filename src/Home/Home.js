@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import { getDataFromValorant } from "../peticiones/Peticion";
 import { Container, Card, CardContent, CardMedia, Grid } from "@mui/material";
+import { ButtonDetail } from "../component/ButtonDetail";
 
 export const Home = () => {
     const [valorant, setValorant] = useState([]);
@@ -19,7 +20,7 @@ export const Home = () => {
         <>
             <Container>
                 <h1>VALORANT API</h1>
-                <Grid container spaciong={3}>
+                <Grid container spacing={3}>
                     {valorant.length > 0 && valorant.map( objet =>(
                         <Grid item md={4} lg={4} sm={12} xs={12}>
                             <Card sx={{ width: 300 }}>
@@ -27,6 +28,7 @@ export const Home = () => {
                                 <CardContent>
                                     <h2>{objet.displayName}</h2>
                                     <p>{objet.description}</p>
+                                    <ButtonDetail name={objet.displayName}/>
                                 </CardContent>
                             </Card>
                         </Grid>
